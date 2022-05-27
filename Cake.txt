@@ -1,0 +1,33 @@
+using System;
+
+namespace Trekking_Mania
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            string lenght = Console.ReadLine();
+            string width = Console.ReadLine();
+            int cake = int.Parse(lenght) * int.Parse(width);
+            string piecesTaken = "0";
+            while (piecesTaken != "STOP")
+            {
+                
+                cake -= int.Parse(piecesTaken);
+                if (cake <= 0)
+                {
+                    Console.WriteLine($"No more cake left! You need {(Math.Abs (cake))} pieces more.");
+                    break;
+                }
+                piecesTaken = Console.ReadLine();
+
+            }
+            if (piecesTaken == "STOP")
+            {
+                Console.WriteLine($"{cake} pieces are left.");
+            }
+            
+        }
+    }
+}

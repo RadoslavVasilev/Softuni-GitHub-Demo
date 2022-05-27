@@ -1,0 +1,50 @@
+using System;
+
+namespace SkiTrip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int primeNumber = 0;
+            int nonPrimeNumber = 0;
+            int numberA = 0;
+            int m = 0;
+            string number = Console.ReadLine();
+            while (number != "stop")
+            {
+                numberA = int.Parse(number);
+                if (numberA < 0)
+                {
+                    Console.WriteLine("Number is negative.");
+                    number = Console.ReadLine();
+                    continue;
+                }
+                bool isPrime = true;
+                for (int i = 2; i < numberA-1; i++)
+                {
+                    if (numberA % i == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                {
+                    primeNumber += numberA;
+                }
+                else
+                {
+                    nonPrimeNumber += numberA;
+                }
+                number = Console.ReadLine();
+            }
+            Console.WriteLine($"Sum of all prime numbers is: {primeNumber}");
+            Console.WriteLine($"Sum of all non prime numbers is: {nonPrimeNumber}");
+            
+            
+        
+
+        }    
+    }
+}

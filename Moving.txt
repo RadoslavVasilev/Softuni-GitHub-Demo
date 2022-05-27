@@ -1,0 +1,34 @@
+using System;
+
+namespace Moving
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int width = int.Parse(Console.ReadLine());
+            int lenght = int.Parse(Console.ReadLine());
+            int height = int.Parse(Console.ReadLine());
+            int V = width * lenght * height;
+            string boxes = "0";  //V / boxes;
+            int freeRoom = 0;
+            while (boxes != "Done")
+            {
+                freeRoom += int.Parse(boxes);
+                if (V <= freeRoom )
+                {
+                    break;
+                }
+                boxes = Console.ReadLine();
+            }
+            if (boxes == "Done")
+            {
+                Console.WriteLine($"{V - freeRoom} Cubic meters left.");
+            }
+            if (V <= freeRoom)
+            {
+                Console.WriteLine($"No more free space! You need {(Math.Abs(freeRoom - V))} Cubic meters more.");
+            }
+        }
+    }
+}

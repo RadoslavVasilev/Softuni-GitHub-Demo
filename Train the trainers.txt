@@ -1,0 +1,35 @@
+using System;
+
+namespace SkiTrip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberJury = int.Parse(Console.ReadLine());
+            string presentation = Console.ReadLine();
+            double overallScore = 0;
+            int totalExams = 0;
+            double averageScore = 0;
+            
+            while (presentation != "Finish")
+            {
+                double currentScore = 0;
+                for (int i = 1; i <= numberJury; i++)
+                {
+                    double score = double.Parse(Console.ReadLine());
+                    overallScore += score;
+                    totalExams++;
+                    currentScore += score;
+                   
+                }
+                averageScore = Math.Abs(currentScore / numberJury);
+                Console.WriteLine($"{presentation} - {averageScore:F2}.");
+                presentation = Console.ReadLine();
+            }
+            Console.WriteLine($"Student's final assessment is {Math.Abs(overallScore / totalExams):F2}.");
+            
+
+        }    
+    }
+}

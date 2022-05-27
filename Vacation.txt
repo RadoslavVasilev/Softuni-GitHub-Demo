@@ -1,0 +1,51 @@
+using System;
+
+namespace Trekking_Mania
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double moneyNeeded = double.Parse(Console.ReadLine());
+            double moneyAvailable = double.Parse(Console.ReadLine());
+            int counterSpend = 0;
+            int days = 0;
+            
+
+            while (moneyAvailable < moneyNeeded)
+            {
+                string action = Console.ReadLine();
+                double spendOrSaved = double.Parse(Console.ReadLine());
+                if (action == "spend")
+                {
+                    moneyAvailable -= spendOrSaved;
+                    if (moneyAvailable < 0)
+                    {
+                        moneyAvailable = 0;
+                    }
+                    counterSpend += 1;
+                    if (counterSpend == 5)
+                    {
+                        Console.WriteLine("You can't save the money.");
+                        Console.WriteLine(counterSpend);
+                        break;
+                    }
+                }
+                else if (action == "save")
+                {
+
+                    moneyAvailable += spendOrSaved;
+                    counterSpend -= 1;
+                }
+                days++;
+            }
+            if (moneyAvailable >= moneyNeeded)
+            {
+                Console.WriteLine($"You saved the money for {days} days.");
+
+
+            }
+        
+        }
+    }
+}

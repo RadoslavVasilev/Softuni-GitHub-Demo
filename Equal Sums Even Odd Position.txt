@@ -1,0 +1,42 @@
+using System;
+
+namespace SkiTrip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n1 = int.Parse(Console.ReadLine());
+            int n2 = int.Parse(Console.ReadLine());
+            //string n1 = Console.ReadLine();
+            // string n2 = Console.ReadLine();
+            int odd;
+            int even;
+
+            for (int i = n1; i <= n2; i++)
+            {
+                odd = 0;
+                even = 0;
+                string currentNum = i.ToString();
+                for (int j = 0; j < currentNum.Length; j++)
+                {
+                    if (j % 2 == 0)
+                    {
+                        even += currentNum[j];
+                    }
+                    else
+                    {
+                        odd += currentNum[j];
+                    }
+                    
+                }
+                if (even == odd)
+                {
+                    Console.Write(currentNum + " ");
+                }
+
+            }
+
+        }    
+    }
+}
