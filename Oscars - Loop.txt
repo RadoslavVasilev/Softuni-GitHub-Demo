@@ -1,0 +1,34 @@
+using System;
+
+namespace Oscars
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string actor = Console.ReadLine();
+            double academyPoints = double.Parse(Console.ReadLine());
+            int jury = int.Parse(Console.ReadLine());
+            for (int i = 0; i < jury; i++)
+            {
+                string nameOfJury = Console.ReadLine();
+                double juryPoints = double.Parse(Console.ReadLine());
+                int num = nameOfJury.Length;
+               academyPoints += ((num * juryPoints) / 2);
+                if (academyPoints >= 1250.5)
+                {
+                    Console.WriteLine($"Congratulations, {actor} got a nominee for leading role with {academyPoints:F1}!");
+                    break;
+                }
+                
+            }
+            if (academyPoints < 1250.5)
+            {
+                Console.WriteLine($"Sorry, {actor} you need {1250.5 - academyPoints:F1} more!");
+            }
+            
+           
+
+        }
+    }
+}
