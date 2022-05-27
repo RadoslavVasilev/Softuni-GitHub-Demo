@@ -1,0 +1,38 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int age = int.Parse(Console.ReadLine());
+            double laundryCost = double.Parse(Console.ReadLine());
+            int toyPrice = int.Parse(Console.ReadLine());
+            int budget = 0;
+            int toys = 0;
+            for (int i = 1; i <= age; i++)
+            {
+                if (i % 2 == 0)
+                { budget += i * 5 - 1; }
+                else
+                {
+                    budget += toyPrice;
+                }
+                
+                
+            }
+            if (budget >= laundryCost)
+            {
+                Console.WriteLine($"Yes! {budget - laundryCost:F2}");
+            }
+            else
+            {
+                Console.WriteLine($"No! {Math.Abs(laundryCost - budget):F2}");
+            }
+           
+        }
+
+
+    }
+}
